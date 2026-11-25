@@ -764,7 +764,12 @@ open class OpenAPSAutoISFPlugin(
             sens_modified = true
         }
 
-        val bg_delta = glucose_status.delta
+        val bg_delta = if (preferences.get(BooleanKey.ApsAlwaysUseShortDeltas)) {
+            glucose_status.shortAvgDelta
+        }
+        else {
+            glucose_status.delta
+        }
         val deltaType = "pp"
         when {
             bg_off > 0.0                     -> {

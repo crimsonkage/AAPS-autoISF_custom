@@ -16,7 +16,7 @@ import app.aaps.core.data.time.T
  */
 object SmbIntervalGate {
 
-    const val TOLERANCE_MS = 6_000L
+    const val TOLERANCE_MS = 20_000L
 
     /** True when the last bolus is too recent for another SMB. */
     fun tooSoon(lastBolusTime: Long, intervalMinutes: Int, now: Long): Boolean =
